@@ -43,8 +43,11 @@ def MenuNewView(request):
             menu = form.save(commit=False)
             menu.save()
     form = MenuForm()
-    queryset = Menu.objects.filter()
-    return render(request, 'menu.html', {'form': form,'object_list':queryset})
+    return render(request, 'menu_new.html', {'form': form})
+    
+def MenuSimpleView(request):
+    queryset = Menu.objects.filter()[:5]
+    return render(request, 'menu.html', {'object_list':queryset})
 
 @silk_profile(name='vista ingredientes')
 def MenuIngredienteNewView(request):
@@ -55,4 +58,8 @@ def MenuIngredienteNewView(request):
             menu_ingrediente.save()
     form = MenuIngredienteForm()
     queryset = Menu_Ingrediente.objects.filter()
+    return render(request, 'menu_ingrediente_new.html', {'form': form,'object_list':queryset})
+
+def MenuIngredienteSimpleView(request):
+    queryset = Menu_Ingrediente.objects.filter()[:5]
     return render(request, 'menu_ingrediente.html', {'form': form,'object_list':queryset})
