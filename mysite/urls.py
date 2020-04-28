@@ -34,6 +34,7 @@ urlpatterns = [
     path('Contrato/Delete/', DeleteContratoView.as_view(), name='delete_contrato'),
         #Con frontend
     path('Contrato/all/', ContratoNewView, name='all_contrato'),
+    path('Contrato/new/', ContratoNewView, name='all_contrato'),
     #Ingrediente
     path('Ingrediente/', IngredienteView.as_view(), name='ingrediente'),
     path('Ingrediente/Delete/', DeleteIngredienteView.as_view(), name='delete_ingrediente'),

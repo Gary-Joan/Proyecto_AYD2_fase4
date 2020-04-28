@@ -61,3 +61,7 @@ def ContratoNewView(request):
     form = ContratoForm()
     queryset = Contrato.objects.filter()
     return render(request, 'contrato.html', {'form': form,'object_list':queryset})
+
+def ContratoSimpleView(request):
+    queryset = Contrato.objects.filter()
+    return render(request, 'contrato.html', {'form': form,'object_list':queryset})
