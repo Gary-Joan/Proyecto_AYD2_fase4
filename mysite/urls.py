@@ -39,8 +39,8 @@ urlpatterns = [
     path('Ingrediente/', IngredienteView.as_view(), name='ingrediente'),
     path('Ingrediente/Delete/', DeleteIngredienteView.as_view(), name='delete_ingrediente'),
         #Con frontend    
-    path('Ingrediente/all/', IngredienteSimpleView.as_view(), name='all_ingrediente'),
-    path('Ingrediente/new/', IngredienteNewView.as_view(), name='all_ingrediente'),
+    path('Ingrediente/all/', IngredienteSimpleView , name='all_ingrediente'),
+    path('Ingrediente/new/', IngredienteNewView, name='all_ingrediente'),
     #Menu
     path('Menu/', MenuView.as_view(), name='menu'),
     path('Menu/Delete/', DeleteMenuView.as_view(), name='delete_menu'),
@@ -53,20 +53,20 @@ urlpatterns = [
     path('Montaje/', MontajeView.as_view(), name='montaje'),
     path('Montaje/Delete/', DeleteMontajeView.as_view(), name='delete_montaje'),
         #Con frontend
-    path('Montaje/all/', MontajeNewView, name='all_montaje'),
-    path('Montaje/new/', MontajeSimpleView, name='all_montaje'),
+    path('Montaje/all/', MontajeSimpleView, name='all_montaje'),
+    path('Montaje/new/', MontajeNewView, name='all_montaje'),
     #Restaurante
     path('Restaurante/', RestauranteView.as_view(), name='restaurante'),
     path('Restaurante/Delete/', DeleteRestauranteView.as_view(), name='delete_restaurante'),
         #Con frontend    
-    path('Restaurante/all/', RestauranteSimpleView.as_view(), name='all_restaurant'),
-    path('Restaurante/new/', RestauranteNewView.as_view(), name='all_restaurant'),
+    path('Restaurante/all/', RestauranteSimpleView, name='all_restaurant'),
+    path('Restaurante/new/', RestauranteNewView, name='all_restaurant'),
     #Salon
     path('Salon/', SalonView.as_view(), name='salon'),
     path('Salon/Delete/', DeleteSalonView.as_view(), name='delete_salon'),
         #Con frontend
-    path('Salon/all/', SalonNewView, name='all_salon'),
-    path('Salon/new/', SalonSimpleView, name='all_salon'),
+    path('Salon/all/', SalonSimpleView, name='all_salon'),
+    path('Salon/new/', SalonNewView, name='all_salon'),
     #User
     #url(r'^rest-auth/', include('rest_auth.urls'))
 ]

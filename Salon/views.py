@@ -38,8 +38,8 @@ def SalonNewView(request):
     if request.method == "POST":
         form = SalonForm(request.POST)
         if form.is_valid():
-            restaurante = form.save(commit=False)
-            restaurante.save()
+            salon = form.save(commit=False)
+            salon.save()
     form = SalonForm()
     return render(request, 'salon_new.html', {'form': form})
 

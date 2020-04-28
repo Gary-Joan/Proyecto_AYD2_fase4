@@ -37,8 +37,8 @@ def MontajeNewView(request):
     if request.method == "POST":
         form = MontajeForm(request.POST)
         if form.is_valid():
-            restaurante = form.save(commit=False)
-            restaurante.save()
+            montaje = form.save(commit=False)
+            montaje.save()
     form = MontajeForm()
     return render(request, 'montaje_new.html', {'form': form})
 
