@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+{% block content %}
+<main role="main">
+  <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <br>
+        <br>
+        <h2 class="featurette-heading">Manejo de Restaurantes. <br><span class="text-muted">La importancia de tener todo en control.</span></h2>
+        <p class="lead">El manejo de un restaurante conlleva muchos procesos que pueden ser automatizados y registrados con el uso de tecnología para poder proporcionar la transparencia en la administración de este negocio, para esto se ha solicitado desarrollar un software en el cual se puede administrar el inventario dentro de cada una de las franquicias de un restaurante, así como poder calendarizar entregas y recibir notificaciones cuando se necesite un abastecer un producto.</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><image href="https://www.guatemala.com/fotos/2020/02/Hotel-Vista-Quince-Guatemala-tiene-el-primer-Restaurante-Giratorio-de-Centroamerica-885x500.jpg" height="500" width="500"/></svg>
+      </div>
+    </div>
+</main>
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% endif %}
+{% endblock %}

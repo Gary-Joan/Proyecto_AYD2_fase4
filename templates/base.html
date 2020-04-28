@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Fase 3{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+  	  {# Cargamos la librería #}
+	  {% load bootstrap4 %}
+ 
+	  {# CSS Bootstrap #}
+	  {% bootstrap_css %}
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/">Restaurante</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/Contrato/all/">Contrato</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Ingrediente/all/">Ingrediente</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Menu/all/">Menu</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Montaje/all/">Montaje</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Restaurante/all/">Restaurante</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Salon/all/">Salon</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <br>
+  <br>
+  {% block content %}
+  <main>
+  </main>
+  {% endblock %}
+  {% bootstrap_javascript jquery='full' %}
+</body>
+</html>

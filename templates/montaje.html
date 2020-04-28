@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Montaje{% endblock %}
+{% block content %}
+<main role="main">
+  <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <br>
+        <br>
+        <h2 class="featurette-heading">Montaje. <br><span class="text-muted">Creacion de los nuevos montajes.</span></h2>
+        <form method="POST" class="post-form">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-dark">Guardar</button>
+        </form>
+      </div>
+    </div>
+    <br><br>
+    <h2 class="featurette-heading">Montaje. <br><span class="text-muted">Lista de montajes.</span></h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Descripcion</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for object in object_list %}
+        <tr>
+          <th scope="row">{{object.id}}</th>
+          <td>{{object.Titulo}}</td>
+          <td>{{object.Descripcion}}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <th scope="row">No hay montajes aun</th>
+        </tr>      
+        {% endfor %}
+      </tbody>
+    </table>
+</main>
+{% endblock %}

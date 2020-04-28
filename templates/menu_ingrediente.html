@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Menu - Ingrediente{% endblock %}
+{% block content %}
+<main role="main">
+  <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <br>
+        <br>
+        <h2 class="featurette-heading">Menu - Ingrediente. <br><span class="text-muted">Relacionar menu con ingrediente .</span></h2>
+        <form method="POST" class="post-form">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-dark">Guardar</button>
+        </form>
+      </div>
+    </div>
+    <br><br>
+    <h2 class="featurette-heading">Menu - Ingrediente. <br><span class="text-muted">Lista</span></h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Menu</th>
+          <th scope="col">Ingrediente</th>
+          <th scope="col">Disponible</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Dimensional</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for object in object_list %}
+        <tr>
+          <th scope="row">{{object.id}}</th>
+          <td>{{object.Menu}}</td>
+          <td>{{object.Ingrediente}}</td>
+          <td>{{object.Disponible}}</td>
+          <td>{{object.Cantidad}}</td>
+          <td>{{object.Dimensional}}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <th scope="row">No hay menus aun</th>
+        </tr>      
+        {% endfor %}
+      </tbody>
+    </table>
+</main>
+{% endblock %}

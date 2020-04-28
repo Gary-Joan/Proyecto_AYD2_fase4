@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Restaurantes{% endblock %}
+{% block content %}
+<main role="main">
+  <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <br>
+        <br>
+        <h2 class="featurette-heading">Restaurantes. <br><span class="text-muted">Creacion de los nuevos restaurantes.</span></h2>
+        <form method="POST" class="post-form">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-dark">Guardar</button>
+        </form>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><image href="https://acam.edu.gt/wp-content/uploads/2018/03/011-1030x539.png" height="500" width="500"/></svg>
+      </div>
+    </div>
+    <h2 class="featurette-heading">Restaurantes. <br><span class="text-muted">Lista de restaurantes.</span></h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Direccion</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for object in object_list %}
+        <tr>
+          <th scope="row">{{object.id}}</th>
+          <td>{{object.Nombre}}</td>
+          <td>{{object.Direccion}}</td>
+                 </tr>
+        {% empty %}
+        <tr>
+          <th scope="row">No hay restaurantes aun</th>
+        </tr>      
+        {% endfor %}
+      </tbody>
+    </table>
+</main>
+{% endblock %}

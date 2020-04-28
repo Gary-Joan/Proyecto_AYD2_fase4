@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Contrato{% endblock %}
+{% block content %}
+<main role="main">
+  <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <br>
+        <br>
+        <h2 class="featurette-heading">Contrato. <br><span class="text-muted">Creacion de los nuevos contratos.</span></h2>
+        <form method="POST" class="post-form">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-dark">Guardar</button>
+        </form>
+      </div>
+    </div>
+    <br><br>
+    <h2 class="featurette-heading">Contrato. <br><span class="text-muted">Lista de contratos.</span></h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Gerente</th>
+          <th scope="col">Menu</th>
+          <th scope="col">Montaje</th>
+          <th scope="col">Restaurante</th>
+          <th scope="col">Salon</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for object in object_list %}
+        <tr>
+          <th scope="row">{{object.id}}</th>
+          <td>{{object.Cliente}}</td>
+          <td>{{object.Gerente}}</td>
+          <td>{{object.Menu}}</td>
+          <td>{{object.Montaje}}</td>
+          <td>{{object.Restaurante}}</td>
+          <td>{{object.Salon}}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <th scope="row">No hay contratos aun</th>
+        </tr>      
+        {% endfor %}
+      </tbody>
+    </table>
+</main>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Salones{% endblock %}
+{% block content %}
+<main role="main">
+  <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <br>
+        <br>
+        <h2 class="featurette-heading">Salones. <br><span class="text-muted">Creacion de los nuevos salones.</span></h2>
+        <form method="POST" class="post-form">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-dark">Guardar</button>
+        </form>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><image href="https://cdn.galaxy.tf/unit-media/tc-default/uploads/images/meeting_room_photo/001/548/959/salones-porta-hotel-antigua-921-standard.jpg" height="500" width="500"/></svg>
+      </div>
+    </div>
+    <h2 class="featurette-heading">Salones. <br><span class="text-muted">Lista de salones.</span></h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Capacidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for object in object_list %}
+        <tr>
+          <th scope="row">{{object.id}}</th>
+          <td>{{object.Nombre}}</td>
+          <td>{{object.Descripcion}}</td>
+          <td>{{object.Capacidad}}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <th scope="row">No hay salones aun</th>
+        </tr>      
+        {% endfor %}
+      </tbody>
+    </table>
+</main>
+{% endblock %}
