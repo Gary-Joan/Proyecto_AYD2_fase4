@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Montaje{% endblock %}
+{% block title %}Contrato{% endblock %}
 {% block content %}
 <main role="main">
   <hr class="featurette-divider">
@@ -8,7 +8,7 @@
       <div class="col-md-7">
         <br>
         <br>
-        <h2 class="featurette-heading">Montaje. <br><span class="text-muted">Creacion de los nuevos montajes.</span></h2>
+        <h2 class="featurette-heading">Contrato. <br><span class="text-muted">Creacion de los nuevos contratos.</span></h2>
         <form method="POST" class="post-form">
           {% csrf_token %}
           {{ form.as_p }}
@@ -16,5 +16,6 @@
         </form>
       </div>
     </div>
+    <br><br>
 </main>
 {% endblock %}

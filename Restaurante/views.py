@@ -40,19 +40,15 @@ class DeleteRestauranteView(APIView):
         queryset.delete()
         return Response(status=status.HTTP_200_OK)
 
-class RestauranteNewView(View):
-    @silk_profile(name="Obtener Restaurantes")
-    def get(self, request):
-        form = RestauranteForm()
-        queryset = Restaurante.objects.all();
-        return render(request, 'restaurante.html', {'form': form, 'object_list': queryset})
-
-    @silk_profile(name="Ingreso restaurante")
-    def post(self, request):
+def RestauranteNewView(request):
+    if request.method == "POST":
         form = RestauranteForm(request.POST)
         if form.is_valid():
             restaurante = form.save(commit=False)
             restaurante.save()
-        form = RestauranteForm()
-        queryset = Restaurante.objects.all()
-        return render(request, 'restaurante.html', {'form': form,'object_list':queryset})
+    form = RestauranteForm()
+    return render(request, 'restaurante_new.html', {'form': form})
+
+def RestauranteSimpleView(request):
+    queryset = Restaurante.objects.all()
+    return render(request, 'restaurante.html', {'object_list':queryset})
