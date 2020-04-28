@@ -40,5 +40,8 @@ def MontajeNewView(request):
             restaurante = form.save(commit=False)
             restaurante.save()
     form = MontajeForm()
-    queryset = Montaje.objects.filter()
-    return render(request, 'montaje.html', {'form': form,'object_list':queryset})
+    return render(request, 'montaje_new.html', {'form': form})
+
+def MontajeSimpleView(request):    
+    queryset = Montaje.objects.filter()[:5]
+    return render(request, 'montaje.html', {'object_list':queryset})

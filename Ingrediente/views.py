@@ -34,19 +34,16 @@ class DeleteIngredienteView(APIView):
         queryset.delete()
         return Response(status=status.HTTP_200_OK)
 
-class IngredienteNewView(View):
-    @silk_profile(name="Obtener Ingredientes")
-    def get(self, request):
-        form = IngredienteForm()
-        queryset = Ingrediente.objects.all();
-        return render(request, 'ingrediente.html', {'form': form,'object_list': queryset})
 
-    @silk_profile(name="Ingresar Ingredientes")
-    def post(self, request):
+def IngredienteNewView(request):
+    if request.method == "POST":
         form = IngredienteForm(request.POST or None)
         if form.is_valid():
             ingrediente = form.save(commit=False)
             ingrediente.save()
-        form = IngredienteForm()
-        queryset = Ingrediente.objects.all()
-        return render(request, 'ingrediente.html', {'form': form,'object_list': queryset})
+    form = IngredienteForm()    
+    return render(request, 'ingrediente_new.html', {'form': form})    
+
+def IngredienteSimpleView(request):
+        queryset = Ingrediente.objects.filter()[:5]
+        return render(request, 'ingrediente.html', {'object_list': queryset})

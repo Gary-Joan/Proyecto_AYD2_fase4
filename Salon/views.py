@@ -41,5 +41,8 @@ def SalonNewView(request):
             restaurante = form.save(commit=False)
             restaurante.save()
     form = SalonForm()
-    queryset = Salon.objects.filter()
-    return render(request, 'salon.html', {'form': form,'object_list':queryset})
+    return render(request, 'salon_new.html', {'form': form})
+
+def SalonSimpleView(request):
+    queryset = Salon.objects.filter()[:5]
+    return render(request, 'salon.html', {'object_list':queryset})
